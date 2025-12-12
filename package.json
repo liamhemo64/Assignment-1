@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "start": "node index.ts",
-    "dev": "nodemon --env-file=.env_dev index.js"
+    "dev": "nodemon index.ts"
   },
   "author": "Anna and Li-am",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
