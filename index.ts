@@ -1,8 +1,9 @@
 import express, { type Express } from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
 dotenv.config({ path: ".env.dev" });
+import postRoutes from "./routes/postRoutes.ts";
+import commentRoutes from "./routes/commentRoutes.ts";
 
 const app = express();
 
@@ -10,6 +11,9 @@ const intApp = () => {
   return new Promise<Express>((resolve, reject) => {
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
+
+    app.use("/post", postRoutes);
+    app.use("/comment", commentRoutes);
 
     const dbUri = process.env.MONGODB_URI;
     if (!dbUri) {
@@ -40,3 +44,5 @@ intApp()
     console.error("Failed to init app:", err);
     process.exit(1);
   });
+
+export default intApp;

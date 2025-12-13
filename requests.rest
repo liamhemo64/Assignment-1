@@ -1,0 +1,9 @@
+### Create a new Post
+POST http://localhost:3000/post
+Content-Type: application/json
+
+{
+  "id": 1,
+  "content": "This is my first post!",
+  "userCreatorID": 1
+}
