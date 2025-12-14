@@ -3,8 +3,8 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-  "id": 1,
-  "content": "This is my first post!",
+  "id": 4,
+  "content": "This is my second post!",
   "userCreatorID": 1
 }
 
@@ -17,4 +17,23 @@ Content-Type: application/json
   "description": "This is my first comment",
   "relatedPostID": 1,
   "userCreatorID": 2
+}
+
+### Update an existing Post
+PUT http://localhost:3000/post/4 
+Content-Type: application/json
+
+{
+  "content": "This is my updated second post!",
+  "userCreatorID": 1
+}
+
+### Update an existing Comment
+PUT http://localhost:3000/comment/1?relatedPostID=1
+Content-Type: application/json
+
+{
+  "description": "Thiss is my updated first comment",
+  "userCreatorID": 2,
+  "relatedPostID": 1
 }
