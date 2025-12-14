@@ -27,7 +27,6 @@ class genericController {
     try {
       const updated = await this.model.findOneAndReplace({ id }, newDoc, {
         new: true,
-        runValidators: true,
       });
 
       if (!updated) {
