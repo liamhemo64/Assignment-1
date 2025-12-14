@@ -1,6 +1,10 @@
-import Post from "../models/postModel.ts";
+import { postModel, type IPost} from "../models/postModel.ts";
 import genericController from "./genericController.ts";
 
-const postController = new genericController(Post);
+class postController extends genericController<IPost> {
+  constructor() {
+    super(postModel);
+  }
+}
 
-export default postController;
+export default new postController();

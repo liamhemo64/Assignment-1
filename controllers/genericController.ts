@@ -1,7 +1,8 @@
 import type { Request, Response } from "express";
+import { Model } from "mongoose";
 
-class genericController {
-  model: any;
+class genericController<T> {
+  model: Model<T>;
 
   constructor(dataModel: any) {
     this.model = dataModel;

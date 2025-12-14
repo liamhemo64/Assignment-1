@@ -1,6 +1,10 @@
-import Comment from "../models/commentModel.ts";
+import { commentModel, type IComment } from "../models/commentModel.ts";
 import genericController from "./genericController.ts";
 
-const commentController = new genericController(Comment);
+class commentController extends genericController<IComment> {
+  constructor() {
+    super(commentModel);
+  }
+}
 
-export default commentController;
+export default new commentController();
