@@ -18,3 +18,7 @@ Content-Type: application/json
   "relatedPostID": 1,
   "userCreatorID": 2
 }
+
+### Delete a Comment
+DELETE http://localhost:3000/comment/1
+Content-Type: application/json
