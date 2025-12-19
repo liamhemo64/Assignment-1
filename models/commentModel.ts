@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
 
 interface IComment {
-  id: Number,
+  _id: Number,
   description: String,
   relatedPostID: Number,
   userCreatorID: Number
 }
 
 const commentSchema = new mongoose.Schema<IComment>({
-  id: {
-    type: Number,
-    required: true,
-  },
   description: {
     type: String,
     required: true,

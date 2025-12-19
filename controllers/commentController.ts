@@ -10,7 +10,7 @@ class commentController extends genericController<IComment> {
   async delete(req: Request, res: Response) {
     const id = req.params.id;
     try {
-      const response = await this.model.findOneAndDelete({ id });
+      const response = await this.model.findByIdAndDelete(id);
 
       if (!response) {
         return res.status(404).json({ error: `Item with id ${id} not found` });
