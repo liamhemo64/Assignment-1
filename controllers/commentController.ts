@@ -8,15 +8,16 @@ class commentController extends genericController<IComment> {
   }
   
   async delete(req: Request, res: Response) {
-    const id = req.params.id;
+    const id = req.params._id;
     try {
       const response = await this.model.findByIdAndDelete(id);
 
       if (!response) {
         return res.status(404).json({ error: `Item with id ${id} not found` });
-      } else {
-        res.status(200).json(response);
-      }
+      } 
+
+      res.status(200).json(response);
+      
     } catch (error) {
       res.status(500).json({ error: error instanceof Error ? error.message : 'An unknown error occurred' });
     }

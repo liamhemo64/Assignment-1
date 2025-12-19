@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "content": "This is my first post!",
-  "userCreatorID": 1
+  "userCreatorID": "507f1f77bcf86cd799439011"
 }
 
 ### Create a new Comment
@@ -13,10 +13,29 @@ Content-Type: application/json
 
 {
   "description": "This is my first comment",
-  "relatedPostID": 1,
-  "userCreatorID": 2
+  "relatedPostID": "694571739bc8067f2333c640",
+  "userCreatorID": "507f1f77bcf86cd799439011"
 }
 
 ### Delete a Comment
-DELETE http://localhost:3000/comment/694569a9bb74b74a5a46076b
+DELETE http://localhost:3000/comment/694571809bc8067f2333c642
 Content-Type: application/json
+
+### Update an existing Post
+PUT http://localhost:3000/post/694571739bc8067f2333c640
+Content-Type: application/json
+
+{
+  "content": "This is my updated second post!",
+  "userCreatorID": "507f1f77bcf86cd799439011"
+}
+
+### Update an existing Comment
+PUT http://localhost:3000/comment/694571809bc8067f2333c642?relatedPostID=694571739bc8067f2333c640
+Content-Type: application/json
+
+{
+  "description": "Thiss is my updated first comment",
+  "userCreatorID": "507f1f77bcf86cd799439011",
+  "relatedPostID": "694571739bc8067f2333c640"
+}

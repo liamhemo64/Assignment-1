@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 interface IComment {
-  _id: Number,
+  _id: mongoose.Types.ObjectId,
   description: String,
-  relatedPostID: Number,
-  userCreatorID: Number
+  relatedPostID: mongoose.Types.ObjectId,
+  userCreatorID: mongoose.Types.ObjectId
 }
 
 const commentSchema = new mongoose.Schema<IComment>({
@@ -13,11 +13,11 @@ const commentSchema = new mongoose.Schema<IComment>({
     required: true,
   },
   relatedPostID: {
-    type: Number,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
   userCreatorID: {
-    type: Number,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
 });
