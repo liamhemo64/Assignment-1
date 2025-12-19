@@ -3,9 +3,8 @@ POST http://localhost:3000/post
 Content-Type: application/json
 
 {
-  "id": 4,
-  "content": "This is my second post!",
-  "userCreatorID": 1
+  "content": "This is my first post!",
+  "userCreatorID": "507f1f77bcf86cd799439011"
 }
 
 ### Create a new Comment
@@ -13,27 +12,30 @@ POST http://localhost:3000/comment
 Content-Type: application/json
 
 {
-  "id": 1,
   "description": "This is my first comment",
-  "relatedPostID": 1,
-  "userCreatorID": 2
+  "relatedPostID": "694571739bc8067f2333c640",
+  "userCreatorID": "507f1f77bcf86cd799439011"
 }
 
+### Delete a Comment
+DELETE http://localhost:3000/comment/694571809bc8067f2333c642
+Content-Type: application/json
+
 ### Update an existing Post
-PUT http://localhost:3000/post/4 
+PUT http://localhost:3000/post/694571739bc8067f2333c640
 Content-Type: application/json
 
 {
   "content": "This is my updated second post!",
-  "userCreatorID": 1
+  "userCreatorID": "507f1f77bcf86cd799439011"
 }
 
 ### Update an existing Comment
-PUT http://localhost:3000/comment/1?relatedPostID=1
+PUT http://localhost:3000/comment/694571809bc8067f2333c642?relatedPostID=694571739bc8067f2333c640
 Content-Type: application/json
 
 {
   "description": "Thiss is my updated first comment",
-  "userCreatorID": 2,
-  "relatedPostID": 1
+  "userCreatorID": "507f1f77bcf86cd799439011",
+  "relatedPostID": "694571739bc8067f2333c640"
 }

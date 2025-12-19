@@ -1,7 +1,8 @@
 import type { Request, Response } from "express";
+import { Model } from "mongoose";
 
-class genericController {
-  model: any;
+class genericController<T> {
+  model: Model<T>;
 
   constructor(dataModel: any) {
     this.model = dataModel;
@@ -21,11 +22,11 @@ class genericController {
   }
 
   async update(req: Request, res: Response) {
-    const id = Number(req.params.id);
+    const id = req.params._id;
     const newDoc = { ...req.body, id };
 
     try {
-      const updated = await this.model.findOneAndReplace({ id }, newDoc, {
+      const updated = await this.model.findByIdAndUpdate(id, newDoc, {
         new: true,
       });
 
