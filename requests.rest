@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Delete a Comment
-DELETE http://localhost:3000/comment/694571809bc8067f2333c642
+DELETE http://localhost:3000/comment/6945e8897befcb89b3bd5667
 Content-Type: application/json
 
 ### Update an existing Post
@@ -31,7 +31,7 @@ Content-Type: application/json
 }
 
 ### Update an existing Comment
-PUT http://localhost:3000/comment/694571809bc8067f2333c642?relatedPostID=694571739bc8067f2333c640
+PUT http://localhost:3000/comment/6945e8897befcb89b3bd5667?relatedPostID=694571739bc8067f2333c640
 Content-Type: application/json
 
 {
@@ -39,3 +39,27 @@ Content-Type: application/json
   "userCreatorID": "507f1f77bcf86cd799439011",
   "relatedPostID": "694571739bc8067f2333c640"
 }
+
+### Get all Posts
+GET http://localhost:3000/post
+Content-Type: application/json
+
+### Get a Post by ID
+GET http://localhost:3000/post/694571739bc8067f2333c640
+Content-Type: application/json  
+
+### Get all Comments
+GET http://localhost:3000/comment
+Content-Type: application/json  
+
+### Get a Comment by ID
+GET http://localhost:3000/comment/6945e8897befcb89b3bd5667
+Content-Type: application/json 
+
+### Get all Comments by relatedPostID
+GET http://localhost:3000/comment?relatedPostID=694571739bc8067f2333c640
+Content-Type: application/json 
+
+### Get all Posts by userCreatorID
+GET http://localhost:3000/post?userCreatorID=507f1f77bcf86cd799439011
+Content-Type: application/json 

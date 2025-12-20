@@ -42,5 +42,42 @@ class genericController<T> {
       });
     }
   }
+
+   async get(req: Request, res: Response,) {
+        const filter = req.query;
+        try {
+            if (filter) {
+                const data = await this.model.find(filter);
+                  if (!data) {
+                    return res.status(404).json({ error: `Data not found with filter ${filter}` });
+                  } 
+                res.status(200).json(data);
+            } else {
+                const data = await this.model.find();
+                  if (!data) {
+                    return res.status(404).json({ error: "Data not found" });
+                  }
+                res.status(200).json(data);
+            }
+        } catch (error) {
+            res.status(500).json({ error: error instanceof Error ? error.message : 'An unknown error occurred' });
+        }
+    };
+
+
+    async getById(req: Request, res: Response) {
+        const id = req.params._id;
+        try {
+            const data = await this.model.findById(id);
+            if (!data) {
+                return res.status(404).json({ error: `Data with id ${id} not found` });
+            } else {
+                res.json(data);
+            }
+        } catch (error) {
+            res.status(500).json({ error: error instanceof Error ? error.message : 'An unknown error occurred' });
+        }
+    };
+
 }
 export default genericController;
